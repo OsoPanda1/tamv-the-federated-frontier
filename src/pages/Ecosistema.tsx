@@ -1,21 +1,23 @@
 import { motion } from "framer-motion";
-import { Globe, Layers, Coins, Users, ShieldCheck, Zap } from "lucide-react";
+import { Globe, Layers, Coins, Users, ShieldCheck, Zap, MapPin } from "lucide-react";
 import ecosistemaBg from "@/assets/ecosistema-bg.jpg";
+import nexoImg from "@/assets/nexo-agua.png";
+import tamvArchImg from "@/assets/tamv-architecture.png";
 
 const features = [
   { icon: Globe, title: "XR / VR / 3D / 4D", desc: "Experiencias inmersivas nativas que van más allá del metaverso convencional. Realidad extendida como estándar." },
   { icon: Layers, title: "CITEMESH", desc: "Civilizational Intelligence Engine and Systemic Solutions Meshwork — el primer framework civilizacional de su tipo." },
-  { icon: Coins, title: "Economía Autosoberana", desc: "Stablecoin híbrida, banco digital, subastas NFT y micropréstamos. Independencia financiera para cada usuario." },
-  { icon: Users, title: "Gobernanza Ética", desc: "Modelo federado con gobernanza transparente. Cada decisión respeta la dignidad humana y la diversidad cultural." },
-  { icon: ShieldCheck, title: "Insignias Verificables", desc: "Sistema de credenciales digitales alineado con estándares AVIXA para certificar competencias en XR y creatividad." },
-  { icon: Zap, title: "Arquitectura Antifrágil", desc: "Costos fijos mínimos de $40,000 USD/mes. Breakeven con 1,300-2,300 usuarios. Diseñado para crecer bajo presión." },
+  { icon: Coins, title: "Economía Autosoberana", desc: "Stablecoin híbrida, banco digital, subastas NFT y micropréstamos. FairSplit 75/25 para creadores." },
+  { icon: Users, title: "Gobernanza Ética", desc: "Modelo federado con gobernanza transparente. DAO + Consejo dual auditable de extremo a extremo." },
+  { icon: ShieldCheck, title: "Seguridad Post-Cuántica", desc: "Criptografía Kyber/Dilithium, QuantumPods™ inmutables, 13 capas de seguridad Dekateotl." },
+  { icon: Zap, title: "Arquitectura Antifrágil", desc: "Heptafederada: 7 Federaciones, niveles L0-L3. Breakeven con 1,300-2,300 usuarios activos." },
 ];
 
 const comparisons = [
   { name: "Roblox", revenue: "$4.46B", users: "200M+", arpu: "~$2" },
   { name: "Fortnite", revenue: "$6B", users: "650M+", arpu: "~$9" },
   { name: "Decentraland", revenue: "$40M", users: "300K", arpu: "~$11" },
-  { name: "TAMV Online", revenue: "Proyectado $10.8M", users: "50K objetivo", arpu: "$18-$30", highlight: true },
+  { name: "TAMV Online", revenue: "Proyectado $10.8M", users: "50K objetivo", arpu: "$18-$48", highlight: true },
 ];
 
 export default function Ecosistema() {
@@ -24,18 +26,22 @@ export default function Ecosistema() {
       {/* Hero */}
       <section className="relative min-h-[70vh] flex items-center overflow-hidden">
         <div className="absolute inset-0">
-          <img src={ecosistemaBg} alt="Ecosistema TAMV" className="w-full h-full object-cover opacity-30" />
+          <img src={ecosistemaBg} alt="Ecosistema TAMV" className="w-full h-full object-cover opacity-25" />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-background/40" />
         </div>
         <div className="container mx-auto px-4 relative z-10">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
-            <p className="font-display text-xs tracking-[0.4em] text-secondary mb-3">TAMV MD-X4</p>
+            <p className="font-display text-xs tracking-[0.4em] text-accent text-glow-lime mb-3">TAMV MD-X4</p>
             <h1 className="font-display text-4xl md:text-6xl font-black text-foreground mb-4">
-              El <span className="text-primary text-glow-cyan">Ecosistema</span>
+              El <span className="text-primary text-glow-blue">Ecosistema</span>
             </h1>
-            <p className="font-body text-xl text-muted-foreground max-w-2xl">
-              Un ecosistema cuántico-emocional pionero en América Latina. Arquitectura avanzada que integra inteligencia emocional, blockchain, XR y gobernanza ética.
+            <p className="font-body text-xl text-muted-foreground max-w-2xl mb-4">
+              Infraestructura Digital Soberana — una "Nación Digital de Pila Completa" diseñada para la dignidad humana.
             </p>
+            <div className="inline-flex items-center gap-2">
+              <MapPin size={14} className="text-destructive" />
+              <span className="font-display text-xs tracking-[0.2em] text-destructive">ORGULLOSAMENTE REALMONTENSES</span>
+            </div>
           </motion.div>
         </div>
       </section>
@@ -51,7 +57,7 @@ export default function Ecosistema() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.1 }}
                 viewport={{ once: true }}
-                className="gradient-card rounded-lg p-8 border border-border hover:border-primary/30 transition-all duration-500"
+                className="card-premium rounded-lg p-8"
               >
                 <f.icon className="text-primary mb-4" size={28} />
                 <h3 className="font-display text-base font-semibold text-foreground mb-2">{f.title}</h3>
@@ -62,11 +68,27 @@ export default function Ecosistema() {
         </div>
       </section>
 
+      {/* Visual: Architecture & Nexo */}
+      <section className="py-20 gradient-hero">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+              <img src={tamvArchImg} alt="Arquitectura TAMV" className="rounded-lg border border-border shadow-2xl w-full" />
+              <p className="font-body text-xs text-muted-foreground mt-3 text-center">Arquitectura del Ecosistema TAMV</p>
+            </motion.div>
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.2 }}>
+              <img src={nexoImg} alt="El Nexo del Agua" className="rounded-lg border border-border shadow-2xl w-full" />
+              <p className="font-body text-xs text-muted-foreground mt-3 text-center">El Nexo del Agua — Mining Life. Not Time.</p>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
       {/* Comparison Table */}
-      <section className="py-16 gradient-hero">
+      <section className="py-16">
         <div className="container mx-auto px-4">
           <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground text-center mb-12">
-            TAMV vs. <span className="text-primary">Plataformas Globales</span>
+            TAMV vs. <span className="text-primary text-glow-blue">Plataformas Globales</span>
           </h2>
           <div className="overflow-x-auto">
             <table className="w-full max-w-3xl mx-auto">
@@ -84,7 +106,7 @@ export default function Ecosistema() {
                     <td className={`py-3 px-4 font-body text-sm ${c.highlight ? "text-primary font-semibold" : "text-foreground"}`}>{c.name}</td>
                     <td className="py-3 px-4 font-mono text-sm text-muted-foreground">{c.revenue}</td>
                     <td className="py-3 px-4 font-mono text-sm text-muted-foreground">{c.users}</td>
-                    <td className={`py-3 px-4 font-mono text-sm ${c.highlight ? "text-secondary font-semibold" : "text-muted-foreground"}`}>{c.arpu}</td>
+                    <td className={`py-3 px-4 font-mono text-sm ${c.highlight ? "text-accent font-semibold" : "text-muted-foreground"}`}>{c.arpu}</td>
                   </tr>
                 ))}
               </tbody>
