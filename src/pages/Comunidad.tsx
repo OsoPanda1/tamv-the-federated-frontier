@@ -1,19 +1,19 @@
 import { motion } from "framer-motion";
-import { ExternalLink, Github, BookOpen, Award, MessageCircle, Users, Globe } from "lucide-react";
+import { ExternalLink, Github, BookOpen, Award, MessageCircle, Users, Globe, Mail, MapPin } from "lucide-react";
 
 const socialLinks = [
   { icon: BookOpen, label: "Blog Oficial", url: "https://tamvonlinenetwork.blogspot.com", desc: "Artículos, visión y actualizaciones del ecosistema" },
-  { icon: Github, label: "GitHub — OsoPanda1", url: "https://github.com/OsoPanda1", desc: "Repositorios y código abierto del proyecto" },
+  { icon: Github, label: "GitHub — OsoPanda1", url: "https://github.com/OsoPanda1", desc: "Repositorios y código del proyecto" },
   { icon: Award, label: "AVIXA Xchange", url: "https://xchange.avixa.org/posts/tamv-online-primer-plataforma-mexicana-civilizacional-digital", desc: "Publicación oficial en la comunidad AVIXA" },
+  { icon: Globe, label: "ORCID", url: "https://orcid.org/0009-0004-3897-2000", desc: "Perfil académico e investigación" },
   { icon: MessageCircle, label: "OpenAI Community", url: "https://community.openai.com", desc: "Participación en foros de IA y GPT Builders" },
-  { icon: Globe, label: "Google Scholar", url: "https://scholar.google.com", desc: "Investigación académica y peer-review" },
 ];
 
 const resources = [
-  { title: "Cómo se construyó TAMV DM-X4™", url: "https://tamvonlinenetwork.blogspot.com/2025/09/como-se-construyo-tamv-dmx4-blog.html", type: "Artículo" },
   { title: "TAMV y el Nacimiento del Primer CITEMESH", url: "https://tamvonlinenetwork.blogspot.com/2026/02/tamv-y-el-nacimiento-del-primer.html", type: "Blog" },
   { title: "TAMV Online — AVIXA Xchange", url: "https://xchange.avixa.org/posts/tamv-online-primer-plataforma-mexicana-civilizacional-digital", type: "Publicación" },
   { title: "Isabella AI — Scientific Appeal", url: "https://tamvonlinenetwork.blogspot.com/2025/10/announcement-scientific-appeal.html", type: "Comunicado" },
+  { title: "Cómo se construyó TAMV DM-X4™", url: "https://tamvonlinenetwork.blogspot.com/2025/09/como-se-construyo-tamv-dmx4-blog.html", type: "Artículo" },
 ];
 
 export default function Comunidad() {
@@ -22,12 +22,12 @@ export default function Comunidad() {
       <section className="min-h-[50vh] flex items-center gradient-hero">
         <div className="container mx-auto px-4">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
-            <p className="font-display text-xs tracking-[0.4em] text-secondary mb-3">CONECTA</p>
+            <p className="font-display text-xs tracking-[0.4em] text-accent text-glow-lime mb-3">CONECTA</p>
             <h1 className="font-display text-4xl md:text-6xl font-black text-foreground mb-4">
-              <span className="text-primary text-glow-cyan">Comunidad</span>
+              <span className="text-primary text-glow-blue">Comunidad</span>
             </h1>
             <p className="font-body text-xl text-muted-foreground max-w-2xl">
-              Únete al movimiento. Encuentra a TAMV Online en plataformas digitales, foros y redes sociales.
+              Únete al movimiento. TAMV Online busca colaboradores, investigadores y visionarios comprometidos.
             </p>
           </motion.div>
         </div>
@@ -37,7 +37,7 @@ export default function Comunidad() {
       <section className="py-24">
         <div className="container mx-auto px-4">
           <h2 className="font-display text-2xl font-bold text-center text-foreground mb-12">
-            Presencia <span className="text-secondary">Digital</span>
+            Presencia <span className="text-secondary text-glow-silver">Digital</span>
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto">
             {socialLinks.map((link, i) => (
@@ -50,7 +50,7 @@ export default function Comunidad() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.1 }}
                 viewport={{ once: true }}
-                className="gradient-card rounded-lg p-6 border border-border hover:border-primary/30 transition-all duration-500 group"
+                className="card-premium rounded-lg p-6 group"
               >
                 <div className="flex items-center gap-3 mb-3">
                   <link.icon className="text-primary group-hover:scale-110 transition-transform" size={24} />
@@ -94,28 +94,29 @@ export default function Comunidad() {
         </div>
       </section>
 
-      {/* ORCID & Contact */}
-      <section className="py-16">
+      {/* Contact */}
+      <section className="py-20">
         <div className="container mx-auto px-4 text-center max-w-2xl">
-          <Users className="mx-auto text-primary mb-6" size={36} />
+          <Mail className="mx-auto text-primary mb-6" size={36} />
           <h2 className="font-display text-xl font-bold text-foreground mb-4">
-            Investigación Académica
+            Contacto <span className="text-primary">Directo</span>
           </h2>
           <p className="font-body text-sm text-muted-foreground mb-6">
-            El trabajo de Edwin Oswaldo Castillo Trejo está respaldado por investigación peer-reviewed 
-            y publicaciones académicas en el campo de la IA ética y ecosistemas digitales.
+            Para información, alianzas, investigación, reportajes y colaboraciones.
           </p>
-          <a
-            href="https://orcid.org"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-md border border-primary text-primary font-display text-sm font-semibold tracking-wider hover:bg-primary/10 transition-all duration-300"
-          >
-            Visitar ORCID <ExternalLink size={14} />
-          </a>
-          <p className="font-mono text-xs text-muted-foreground mt-4">
-            CEO Fundador: Edwin Oswaldo Castillo Trejo (Anubis Villaseñor)
-          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+            <a href="mailto:tamvonlinenetwork@outlook.es" className="inline-flex items-center gap-2 px-6 py-3 rounded-md border border-primary/30 text-primary font-body text-sm hover:bg-primary/5 transition-all">
+              <Mail size={16} /> tamvonlinenetwork@outlook.es
+            </a>
+            <a href="mailto:ecastillotrejo1983@gmail.com" className="inline-flex items-center gap-2 px-6 py-3 rounded-md border border-secondary/30 text-secondary font-body text-sm hover:bg-secondary/5 transition-all">
+              <Mail size={16} /> ecastillotrejo1983@gmail.com
+            </a>
+          </div>
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-destructive/30 bg-destructive/5">
+            <MapPin size={14} className="text-destructive" />
+            <span className="font-display text-xs tracking-[0.2em] text-destructive">ORGULLOSAMENTE REALMONTENSES</span>
+          </div>
+          <p className="font-body text-sm text-muted-foreground mt-2">Real del Monte, Hidalgo, México</p>
         </div>
       </section>
     </div>

@@ -15,7 +15,7 @@ export default {
     extend: {
       fontFamily: {
         display: ['Orbitron', 'sans-serif'],
-        body: ['Rajdhani', 'sans-serif'],
+        body: ['Space Grotesk', 'Rajdhani', 'sans-serif'],
         mono: ['Inter', 'monospace'],
       },
       colors: {
@@ -62,9 +62,13 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
-        glow: {
-          cyan: "hsl(var(--glow-cyan))",
-          gold: "hsl(var(--glow-gold))",
+        tamv: {
+          blue: "hsl(var(--metallic-blue))",
+          silver: "hsl(var(--silver))",
+          pearl: "hsl(var(--pearl))",
+          lime: "hsl(var(--lime))",
+          cherry: "hsl(var(--cherry))",
+          black: "hsl(var(--deep-black))",
         },
       },
       borderRadius: {

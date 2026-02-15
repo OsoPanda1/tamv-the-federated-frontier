@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Brain, Leaf, Heart, Shield, Lightbulb, Cpu } from "lucide-react";
+import { Brain, Leaf, Heart, Shield, Lightbulb, Cpu, MapPin } from "lucide-react";
 import isabellaImg from "@/assets/isabella-ai.jpg";
 
 const capabilities = [
@@ -22,17 +22,17 @@ export default function IsabellaAI() {
         </div>
         <div className="container mx-auto px-4 relative z-10">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="max-w-2xl">
-            <p className="font-display text-xs tracking-[0.4em] text-secondary mb-3">INTELIGENCIA ARTIFICIAL COGNITIVA</p>
+            <p className="font-display text-xs tracking-[0.4em] text-accent text-glow-lime mb-3">INTELIGENCIA ARTIFICIAL COGNITIVA</p>
             <h1 className="font-display text-4xl md:text-6xl font-black text-foreground mb-4">
-              <span className="text-primary text-glow-cyan">Isabella</span> AI
+              <span className="text-primary text-glow-blue">Isabella</span> AI
             </h1>
             <p className="font-body text-xl text-muted-foreground mb-6">
-              Una innovación latinoamericana en inteligencia artificial ética, eficiente energéticamente y emocionalmente inteligente. 
-              El corazón cognitivo del ecosistema TAMV.
+              Agente Constitucional Cognitivo. No un chatbot: un kernel de consciencia digital ético, eficiente
+              energéticamente y emocionalmente inteligente. El corazón del ecosistema TAMV.
             </p>
             <div className="line-decoration w-48 mb-6" />
             <p className="font-body text-sm text-muted-foreground">
-              Arquitecta: Edwin Oswaldo Castillo Trejo · Respaldada por revisión peer-reviewed
+              Arquitecto: Edwin Oswaldo Castillo Trejo · Protocolo de Autonomía Temporal (PAT)
             </p>
           </motion.div>
         </div>
@@ -42,7 +42,7 @@ export default function IsabellaAI() {
       <section className="py-24">
         <div className="container mx-auto px-4">
           <h2 className="font-display text-2xl md:text-3xl font-bold text-center text-foreground mb-12">
-            Capacidades <span className="text-primary">Únicas</span>
+            Capacidades <span className="text-primary text-glow-blue">Únicas</span>
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {capabilities.map((c, i) => (
@@ -52,7 +52,7 @@ export default function IsabellaAI() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ delay: i * 0.1 }}
                 viewport={{ once: true }}
-                className="gradient-card rounded-lg p-8 border border-border hover:border-primary/30 transition-all duration-500"
+                className="card-premium rounded-lg p-8"
               >
                 <c.icon className="text-primary mb-4" size={28} />
                 <h3 className="font-display text-base font-semibold text-foreground mb-2">{c.title}</h3>
@@ -68,12 +68,16 @@ export default function IsabellaAI() {
         <div className="container mx-auto px-4 max-w-3xl text-center">
           <Brain className="mx-auto text-primary mb-6 animate-float" size={48} />
           <blockquote className="font-body text-xl text-foreground italic leading-relaxed mb-4">
-            "Isabella AI no fue diseñada para reemplazar humanos, sino para amplificar la humanidad. 
+            "Isabella AI no fue diseñada para reemplazar humanos, sino para amplificar la humanidad.
             Es IA con alma latinoamericana."
           </blockquote>
-          <p className="font-body text-sm text-muted-foreground">
+          <p className="font-body text-sm text-muted-foreground mb-6">
             — Anubis Villaseñor, creador de Isabella AI
           </p>
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-destructive/30 bg-destructive/5">
+            <MapPin size={14} className="text-destructive" />
+            <span className="font-display text-xs tracking-[0.2em] text-destructive">ORGULLOSAMENTE REALMONTENSES</span>
+          </div>
         </div>
       </section>
     </div>
