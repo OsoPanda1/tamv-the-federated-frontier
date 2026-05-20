@@ -74,7 +74,7 @@ const Index = () => {
               Antifrágil · Autosoberano · Pionero
             </p>
             <p className="font-mono text-sm text-muted-foreground mb-8">
-              +21,000 horas documentadas · Lanzamiento oficial: 5 de febrero 2026
+              +22,000 horas documentadas · ORCID 0009-0008-5050-1539 · DOI 10.5281/zenodo.19436662 · TRL 7 · Lanzamiento 5 febrero 2026
             </p>
             <div className="flex flex-wrap gap-4 mb-12">
               <Link
@@ -88,6 +88,18 @@ const Index = () => {
                 className="inline-flex items-center gap-2 px-8 py-4 rounded-md border border-secondary/30 text-secondary font-display text-sm font-semibold tracking-wider hover:bg-secondary/5 transition-all duration-300"
               >
                 Conocer Isabella AI <Sparkles size={16} />
+              </Link>
+              <Link
+                to="/registros"
+                className="inline-flex items-center gap-2 px-8 py-4 rounded-md border border-accent/30 text-accent font-display text-sm font-semibold tracking-wider hover:bg-accent/5 transition-all duration-300"
+              >
+                Registros & DOIs <FileText size={16} />
+              </Link>
+              <Link
+                to="/utamv"
+                className="inline-flex items-center gap-2 px-8 py-4 rounded-md border border-secondary/30 text-secondary font-display text-sm font-semibold tracking-wider hover:bg-secondary/5 transition-all duration-300"
+              >
+                UTAMV Campus <ArrowRight size={16} />
               </Link>
               <Link
                 to="/certificaciones"
