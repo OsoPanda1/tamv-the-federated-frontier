@@ -10,6 +10,7 @@ const navItems = [
   { path: "/isabella-ai", label: "Isabella AI" },
   { path: "/blueprint", label: "Blueprint" },
   { path: "/utamv", label: "UTAMV" },
+  { path: "/manifiesto-humano", label: "Manifiesto Humano" },
   { path: "/ceo", label: "CEO" },
   { path: "/tecnologia", label: "Tecnología" },
   { path: "/registros", label: "Registros · DOIs" },
