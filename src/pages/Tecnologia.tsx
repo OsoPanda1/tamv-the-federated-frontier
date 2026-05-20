@@ -7,10 +7,10 @@ const Scene3D = lazy(() => import("@/components/Scene3D"));
 const stack = [
   { icon: Network, title: "Arquitectura Heptafederada", desc: "7 Federaciones (Identidad, Consciencia, DreamSpaces, Economía, Defensa, Gobernanza, Infraestructura) en niveles L0-L3." },
   { icon: Cpu, title: "IA Cognitiva 4D", desc: "Isabella AI opera como Agente Constitucional Cognitivo con Protocolo de Autonomía Temporal (PAT)." },
-  { icon: Database, title: "MSR Blockchain", desc: "Sexta Blockchain Mundial — libro civilizatorio inmutable con Reparación sin Amnesia y BookPI™." },
+  { icon: Database, title: "MSR Blockchain", desc: "Registro técnico distribuido — libro estructural inmutable con Reparación sin Amnesia y BookPI™." },
   { icon: Lock, title: "Seguridad Post-Cuántica", desc: "Kyber/Dilithium, QuantumPods™ inmutables, 13 capas Dekateotl, registros WORM." },
   { icon: Layers, title: "Capas XR Nativas", desc: "WebXR, WebGL y frameworks 3D/4D integrados como primera capa, DreamSpaces inmersivos." },
-  { icon: Workflow, title: "CITEMESH Framework", desc: "Motor de inteligencia civilizacional con malla adaptativa de soluciones sistémicas." },
+  { icon: Workflow, title: "CITEMESH Framework", desc: "Motor de inteligencia sistémica con malla adaptativa de soluciones sistémicas." },
 ];
 
 const specs = [

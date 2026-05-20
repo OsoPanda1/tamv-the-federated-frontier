@@ -23,7 +23,7 @@ const tracks = [
   },
   {
     title: "Economía Programable",
-    desc: "Identidad soberana, credenciales verificables, economía interna gamificada y ARPU sostenible.",
+    desc: "Identidad interoperable, credenciales verificables, economía interna gamificada y ARPU sostenible.",
     icon: Award,
     hours: "200h",
   },
@@ -67,7 +67,7 @@ const UTAMV = () => {
           </p>
           <p className="font-body text-muted-foreground leading-relaxed">
             Los egresados no obtienen un papel: obtienen <span className="text-secondary">credenciales
-            verificables soberanas</span> y acceso directo a contribuir en infraestructuras MD-X4 reales,
+            verificables interoperables</span> y acceso directo a contribuir en infraestructuras MD-X4 reales,
             con su nombre registrado en la evolución del kernel.
           </p>
         </motion.div>
