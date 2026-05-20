@@ -10,6 +10,7 @@ import IsabellaAI from "./pages/IsabellaAI";
 import CEO from "./pages/CEO";
 import Tecnologia from "./pages/Tecnologia";
 import Comunidad from "./pages/Comunidad";
+import Blueprint from "./pages/Blueprint";
 import Certificaciones from "./pages/Certificaciones";
 import Publicaciones from "./pages/Publicaciones";
 import NotFound from "./pages/NotFound";
