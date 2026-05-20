@@ -9,8 +9,10 @@ const navItems = [
   { path: "/ecosistema", label: "Ecosistema" },
   { path: "/isabella-ai", label: "Isabella AI" },
   { path: "/blueprint", label: "Blueprint" },
-  { path: "/ceo", label: "CEO & Fundador" },
+  { path: "/utamv", label: "UTAMV" },
+  { path: "/ceo", label: "CEO" },
   { path: "/tecnologia", label: "Tecnología" },
+  { path: "/registros", label: "Registros · DOIs" },
   { path: "/certificaciones", label: "Certificaciones" },
   { path: "/publicaciones", label: "Publicaciones" },
   { path: "/comunidad", label: "Comunidad" },
@@ -96,10 +98,13 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               <h4 className="font-display text-xs text-secondary mb-3 tracking-wider">ENLACES</h4>
               <div className="space-y-2">
                 {[
+                  { label: "Sitio Oficial TAMV", url: "https://tamvonline-oficial.odoo.com" },
                   { label: "Blog Oficial", url: "https://tamvonlinenetwork.blogspot.com" },
-                  { label: "GitHub", url: "https://github.com/OsoPanda1" },
-                  { label: "AVIXA Xchange", url: "https://xchange.avixa.org/posts/tamv-online-primer-plataforma-mexicana-civilizacional-digital" },
-                  { label: "ORCID", url: "https://orcid.org/0009-0004-3897-2000" },
+                  { label: "GitHub · OsoPanda1", url: "https://github.com/OsoPanda1" },
+                  { label: "Comunidad groups.io", url: "https://TAMVONLINE-ECOSISTEM-LATAM.groups.io/" },
+                  { label: "LinkedIn Newsletter", url: "https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7395085399506927616" },
+                  { label: "ORCID 0009-0008-5050-1539", url: "https://orcid.org/0009-0008-5050-1539" },
+                  { label: "DOI Zenodo Canon", url: "https://doi.org/10.5281/zenodo.19436662" },
                 ].map((l) => (
                   <a key={l.label} href={l.url} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-xs text-muted-foreground hover:text-primary transition-colors font-body">
                     <ExternalLink size={12} /> {l.label}
@@ -124,7 +129,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 Dedicado a <span className="text-secondary">Reina Trejo Serrano</span>
               </p>
               <p className="text-xs text-muted-foreground mt-2 font-body">
-                +21,000 horas documentadas · Lanzamiento 5 de febrero 2026
+                +22,000 horas documentadas · TRL 7 · Lanzamiento 5 febrero 2026
               </p>
             </div>
           </div>
