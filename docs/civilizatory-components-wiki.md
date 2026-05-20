@@ -3,7 +3,7 @@
 ## 1) Protocolos y kernels
 - **Core Protocol Engine**: ejecuta ciclo de vida, comandos y políticas de constitución.
 - **Kernel TAMV**: conjunto de servicios base para identidad, memoria, guardianía y orquestación.
-- **Korima Codex**: capa doctrinal y semántica para decisiones con impacto estructural.
+- **Korima Codex**: capa doctrinal y semántica para decisiones con impacto civilizatorio.
 
 ## 2) Memoria y trazabilidad
 - **MSR Blockchain**: registro de eventos críticos con integridad verificable.
@@ -18,11 +18,11 @@
 - **Radares gemelos MOS**: instrumentación paralela para verificación cruzada.
 
 ## 4) Identidad, economía y experiencia
-- **ID-NVIDA**: identidad interoperable federada y control de acceso por rol/capacidad.
+- **ID-NVIDA**: identidad soberana federada y control de acceso por rol/capacidad.
 - **UTAMV**: unidad transaccional interna de contribución/uso (no especulativa).
 - **GEMET**: malla de metadatos y taxonomía de conocimiento operativo.
 - **KAOS Audio System**: sistema de señal sonora para experiencia inmersiva y alarmas UX.
-- **CITEMESH**: tejido estructural de cells y servicios federados.
+- **CITEMESH**: tejido civilizatorio de cells y servicios federados.
 
 ## 5) Dimensión simbólica
 - **Dekateotl** y **Aztek Gods**: namespace simbólico-cultural para modos narrativos/experienciales.

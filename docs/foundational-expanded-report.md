@@ -1,7 +1,7 @@
 # Informe Analítico — TAMV Online (Versión Fundacional Ampliada)
 
 ## Alcance
-Este documento consolida una base técnica y de gobernanza para integrar de forma coherente los componentes estructurales TAMV en capas L0–L7.
+Este documento consolida una base técnica y de gobernanza para integrar de forma coherente los componentes civilizatorios TAMV en capas L0–L7.
 
 ## Núcleos incluidos
 - Wiki fundacional del ecosistema TAMV.
@@ -13,7 +13,7 @@ Este documento consolida una base técnica y de gobernanza para integrar de form
 2. **L1 Memoria y Registro**: MSR (eventos críticos) + BookPI (narrativa auditable).
 3. **L2 Protocolos Controlados**: Lifecycle, command y orquestación de protocolos.
 4. **L3 Guardianía y Monitoreo**: centinelas, niveles de amenaza y contratos de observabilidad.
-5. **L4 XR/VR/3D/4D**: traducción visual de estado estructural y DreamSpaces persistentes.
+5. **L4 XR/VR/3D/4D**: traducción visual de estado civilizatorio y DreamSpaces persistentes.
 6. **L5 Servicios de Dominio**: identidad, social, economía, membresías, tokens internos.
 7. **L6 Shell UX**: experiencia web/XR para civiles, creadores e instituciones.
 8. **L7 Quant-Inspired**: pipelines de decisión con exploración multi-ruta y colapso ético.
@@ -30,7 +30,7 @@ Este documento consolida una base técnica y de gobernanza para integrar de form
 - Separación de responsabilidades por capa para facilitar cumplimiento, certificación y peritaje.
 
 ## Entregables documentales requeridos
-- Wiki de componentes estructurales.
+- Wiki de componentes civilizatorios.
 - Blueprint de APIs y eventos.
 - Matriz de riesgos por capa.
 - Tabla de compatibilidad regulatoria por dominio.

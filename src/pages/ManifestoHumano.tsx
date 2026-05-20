@@ -3,7 +3,7 @@ import { Card } from "@/components/ui/card";
 
 const contrasts = [
   { oldWay: "Retención adictiva", tamvWay: "Uso consciente" },
-  { oldWay: "Extracción de datos", tamvWay: "Control de datos y trazabilidad" },
+  { oldWay: "Extracción de datos", tamvWay: "Soberanía y trazabilidad" },
   { oldWay: "Complejidad confusa", tamvWay: "Lenguaje simple" },
   { oldWay: "Dependencia", tamvWay: "Transferencia de conocimiento" },
 ];
