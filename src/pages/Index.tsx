@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Heart, ArrowRight, Sparkles, Globe, Brain, Shield, Award, FileText, Mail, MapPin } from "lucide-react";
 import { lazy, Suspense } from "react";
 import logoTamv from "@/assets/logo-tamv.jpg";
-import metaversoImg from "@/assets/metaverso-latam.png";
+import plataforma XRImg from "@/assets/plataforma XR-latam.png";
 import citemeshImg from "@/assets/citemesh.png";
 
 const Scene3D = lazy(() => import("@/components/Scene3D"));
@@ -167,7 +167,7 @@ const Index = () => {
               {
                 icon: Globe,
                 title: "Civilización Digital",
-                desc: "Un ecosistema que trasciende las redes sociales. Gobernanza ética, economía autosoberana y experiencias inmersivas XR/VR.",
+                desc: "Un ecosistema que trasciende las redes sociales. Gobernanza ética, economía autointeroperable y experiencias inmersivas XR/VR.",
                 color: "text-primary",
               },
               {
@@ -209,7 +209,7 @@ const Index = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <img src={metaversoImg} alt="Metaverso Latinoamericano TAMV" className="rounded-lg border border-border shadow-2xl" />
+              <img src={plataforma XRImg} alt="Metaverso Latinoamericano TAMV" className="rounded-lg border border-border shadow-2xl" />
             </motion.div>
             <motion.div
               initial={{ opacity: 0, x: 30 }}
@@ -255,8 +255,8 @@ const Index = () => {
               </p>
               <p className="font-body text-muted-foreground leading-relaxed mb-6">
                 Metaverso Tecnológico Civilizatorio al Servicio de la Humanidad.
-                Identidad soberana, economía programable, gobernanza ética, XR inmersiva
-                y un registro soberano del metaverso con Isabella AI como núcleo cognitivo.
+                Identidad interoperable, economía programable, gobernanza ética, XR inmersiva
+                y un registro soberano del plataforma XR con Isabella AI como núcleo cognitivo.
               </p>
               <div className="space-y-3">
                 {["Sovereign Identity", "Programmable Economy", "Ethical Governance", "Immersive XR / AI", "Knowledge Hub", "Metaverse Sovereign Registry"].map((item) => (

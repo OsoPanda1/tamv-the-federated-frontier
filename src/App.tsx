@@ -15,7 +15,10 @@ import Certificaciones from "./pages/Certificaciones";
 import Publicaciones from "./pages/Publicaciones";
 import Registros from "./pages/Registros";
 import UTAMV from "./pages/UTAMV";
+import ManifestoHumano from "./pages/ManifestoHumano";
 import NotFound from "./pages/NotFound";
+import IntegracionTamv from "./pages/IntegracionTamv";
+import VisualCenter from "./pages/VisualCenter";
 
 const queryClient = new QueryClient();
 
@@ -38,6 +41,9 @@ const App = () => (
             <Route path="/publicaciones" element={<Publicaciones />} />
             <Route path="/registros" element={<Registros />} />
             <Route path="/utamv" element={<UTAMV />} />
+            <Route path="/manifiesto-humano" element={<ManifestoHumano />} />
+            <Route path="/integracion-tamv" element={<IntegracionTamv />} />
+            <Route path="/visual-center" element={<VisualCenter />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Layout>

@@ -1,73 +1,119 @@
-# Welcome to your Lovable project
+# TAMV MD-X4 — The Federated Frontier
 
-## Project info
+Implementación frontend + núcleo TypeScript de servicios TAMV para validar arquitectura federada, trazabilidad y cierre de módulos con criterio humano.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+## 1) Qué es este repositorio
+Este proyecto contiene dos capas principales:
 
-## How can I edit this code?
+- **Aplicación web (React + Vite)** para navegación, páginas públicas y visualización de integración.
+- **Núcleo de servicios (`src/core`)** con contratos y lógica replicable para protocolo, memoria, ética, identidad, economía, social, XR y gobernanza THCF.
 
-There are several ways of editing your application.
+El objetivo actual es pasar de landing a base funcional modular, sin acoplar todavía persistencia real, backend HTTP productivo ni infraestructura distribuida.
 
-**Use Lovable**
+---
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+## 2) Arquitectura implementada (estado real)
 
-Changes made via Lovable will be committed automatically to this repo.
+### L0–L2 (doctrina, memoria, protocolos)
+- `src/core/protocol/*`
+  - `ProtocolEngine`, `ProtocolOrchestrator`, lifecycle, constitution, command, adapters.
+- `src/core/memory/*`
+  - `MsrEngine` para eventos auditable-style.
+  - `BookPi` para narrativas trazables.
+- `src/core/eoct/eoct.service.ts`
+  - Evaluación ética base (reglas mínimas do-no-harm).
 
-**Use your preferred IDE**
+### L3–L4 (guardianía y XR)
+- `src/core/guardian/protocol.monitoring.guardian.ts`
+  - Señales de observabilidad/alerta.
+- `src/core/xr/*`
+  - `protocol.visual.xr.ts` (traducción estado->escena),
+  - `xr.renderer.adapter.ts` (escena->instrucción de render),
+  - `xr.gateway.ts` (pub/sub de eventos),
+  - `dreamspaces.service.ts` (espacios y permisos).
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### L5 (servicios de dominio)
+- `src/core/identity/idnvida.service.ts`
+- `src/core/economy/*` (`ledger.internal`, `memberships`, `economy.service`)
+- `src/core/social/*` (posts, canales, mensajes directos)
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### L6 (shell UX)
+- Rutas React en `src/App.tsx`
+- Navegación en `src/components/Layout.tsx`
+- Páginas de contenido/integración (`ManifestoHumano`, `IntegracionTamv`, etc.)
 
-Follow these steps:
+### L7 (gobernanza de complejidad)
+- `src/core/protocol/thcf.*`
+  - **TAMV Human Coherence Filter (THCF)**: evalúa cada módulo por entendibilidad, justificación humana, coherencia operacional y límites.
+- `src/core/domain/module-registry.service.ts`
+  - Registro y cierre de módulos con estado (`draft`, `in_review`, `closed`, `rework`, `rejected`).
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+---
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+## 3) Estructura rápida
 
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+```txt
+src/
+  core/
+    api/
+    catalog/
+    domain/
+    economy/
+    eoct/
+    guardian/
+    identity/
+    isabella/
+    memory/
+    protocol/
+    social/
+    xr/
+  data/
+  pages/
+  test/
 ```
 
-**Edit a file directly in GitHub**
+---
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## 4) Integración de fuentes abiertas TAMV
 
-**Use GitHub Codespaces**
+- Catálogo técnico: `src/data/tamv-open-web-catalog.ts`
+- Servicio de integración: `src/core/catalog/tamv.catalog.service.ts`
+- Vista UI: `src/pages/IntegracionTamv.tsx`
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+Se usa para mapear fuentes públicas a semillas de módulos evaluables por THCF.
 
-## What technologies are used for this project?
+---
 
-This project is built with:
+## 5) Scripts
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+```bash
+npm install
+npm run dev
+npm run test
+npm run build
+```
 
-## How can I deploy this project?
+---
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+## 6) Estado actual y límites
 
-## Can I connect a custom domain to my Lovable project?
+- ✅ Hay contratos y servicios funcionales para simulación local.
+- ✅ Hay pruebas unitarias para protocolo, THCF, catálogo, social, XR e identidad/economía.
+- ⚠️ No hay backend persistente de producción (DB, colas, auth robusta, observabilidad externa).
+- ⚠️ No hay transporte WS/SSE real expuesto como API pública todavía (hay capa de simulación).
 
-Yes, you can!
+---
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+## 7) Próximos cierres de módulo recomendados
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+1. **API real**: exponer controladores HTTP/WS reales para `/auth`, `/social/*`, `/protocols`, `/economy`, `/xr`.
+2. **Persistencia**: mover servicios en memoria a repositorios persistentes.
+3. **Seguridad**: hash de contraseñas, sesiones seguras, control de rate-limit.
+4. **THCF obligatorio en CI**: bloquear merge de módulos sin evaluación aprobada o plan de rework.
+5. **Observabilidad**: estandarizar eventos MSR/BookPI con schemas versionados.
+
+---
+
+## 8) Nota de entorno
+
+En este entorno de ejecución hubo restricciones intermitentes de red/dependencias (ej. `vitest`/`vite` no disponibles sin instalación), por lo que la verificación depende de la instalación local completa de `node_modules`.
