@@ -88,6 +88,23 @@ Se usa para mapear fuentes públicas a semillas de módulos evaluables por THCF.
 
 ```bash
 npm install
+
+---
+
+## 4) Integración de fuentes abiertas TAMV
+
+- Catálogo técnico: `src/data/tamv-open-web-catalog.ts`
+- Servicio de integración: `src/core/catalog/tamv.catalog.service.ts`
+- Vista UI: `src/pages/IntegracionTamv.tsx`
+
+Se usa para mapear fuentes públicas a semillas de módulos evaluables por THCF.
+
+---
+
+## 5) Scripts
+
+```bash
+npm install
 # TAMV — The Federated Frontier
 
 Repositorio de implementación funcional para TAMV MD-X4.
@@ -125,6 +142,29 @@ npm run build
 ```
 
 ---
+
+## 6) Estado actual y límites
+
+- ✅ Hay contratos y servicios funcionales para simulación local.
+- ✅ Hay pruebas unitarias para protocolo, THCF, catálogo, social, XR e identidad/economía.
+- ⚠️ No hay backend persistente de producción (DB, colas, auth robusta, observabilidad externa).
+- ⚠️ No hay transporte WS/SSE real expuesto como API pública todavía (hay capa de simulación).
+
+---
+
+## 7) Próximos cierres de módulo recomendados
+
+1. **API real**: exponer controladores HTTP/WS reales para `/auth`, `/social/*`, `/protocols`, `/economy`, `/xr`.
+2. **Persistencia**: mover servicios en memoria a repositorios persistentes.
+3. **Seguridad**: hash de contraseñas, sesiones seguras, control de rate-limit.
+4. **THCF obligatorio en CI**: bloquear merge de módulos sin evaluación aprobada o plan de rework.
+5. **Observabilidad**: estandarizar eventos MSR/BookPI con schemas versionados.
+
+---
+
+## 8) Nota de entorno
+
+En este entorno de ejecución hubo restricciones intermitentes de red/dependencias (ej. `vitest`/`vite` no disponibles sin instalación), por lo que la verificación depende de la instalación local completa de `node_modules`.
 
 ## 6) Estado actual y límites
 
