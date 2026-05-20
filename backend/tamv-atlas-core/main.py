@@ -1,0 +1,233 @@
+import hashlib
+import hmac
+import json
+import secrets
+import time
+from datetime import datetime
+from pathlib import Path
+from threading import Lock
+from typing import Any, Dict, List, Optional, Set
+
+from fastapi import Depends, FastAPI, Header, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
+from pydantic import BaseModel, Field
+
+BASE_DIR = Path(__file__).resolve().parent
+VAULT_DIR = BASE_DIR / "tamv_core_vault"
+VAULT_DIR.mkdir(parents=True, exist_ok=True)
+
+PATHS = {
+    "episodic": VAULT_DIR / "tamv_episodic_memory.json",
+    "bookpi": VAULT_DIR / "bookpi_ledger.json",
+    "datagit": VAULT_DIR / "datagit_index.json",
+    "economy": VAULT_DIR / "mdd_economy_state.json",
+}
+
+FILE_LOCKS = {key: Lock() for key in PATHS}
+
+
+def _atomic_write(path: Path, data: Any) -> None:
+    tmp = path.with_suffix(path.suffix + ".tmp")
+    tmp.write_text(json.dumps(data, indent=2, ensure_ascii=False), encoding="utf-8")
+    tmp.replace(path)
+
+
+def _load_json(path_key: str) -> Any:
+    with FILE_LOCKS[path_key]:
+        return json.loads(PATHS[path_key].read_text(encoding="utf-8"))
+
+
+def _save_json(path_key: str, data: Any) -> None:
+    with FILE_LOCKS[path_key]:
+        _atomic_write(PATHS[path_key], data)
+
+
+for name, path in PATHS.items():
+    if not path.exists():
+        if name == "economy":
+            _save_json(name, {"balances": {}, "locks": {}})
+        else:
+            _save_json(name, [])
+
+
+class AuthPayload(BaseModel):
+    isni_id: str = Field(..., pattern=r"^\d{4}-\d{4}-\d{4}-\d{3}[0-9X]$")
+    quantum_signature: str
+
+
+class InteractionPayload(BaseModel):
+    user_input: str = Field(..., min_length=1, max_length=6000)
+
+
+class CreditsTransaction(BaseModel):
+    recipient_isni: str
+    amount: float = Field(..., gt=0)
+    lock_days: int = Field(..., ge=30, le=1460)
+
+
+class TAMVMemoryEngine:
+    STOPWORDS = {"el", "la", "los", "las", "un", "una", "en", "para", "de", "que", "y", "a", "o", "u"}
+
+    @staticmethod
+    def _tokens(text: str) -> Set[str]:
+        normalized = "".join(c if c.isalnum() or c.isspace() else " " for c in text.lower())
+        return {t for t in normalized.split() if t not in TAMVMemoryEngine.STOPWORDS}
+
+    @classmethod
+    def buscar_contexto(cls, query: str, top_k: int = 3) -> List[Dict[str, Any]]:
+        memory = _load_json("episodic")
+        if not memory:
+            return []
+        q = cls._tokens(query)
+        if not q:
+            return memory[-top_k:]
+        scored: List[Any] = []
+        for ep in memory:
+            e = cls._tokens(ep["payload"]["input"])
+            union = q.union(e)
+            score = len(q.intersection(e)) / len(union) if union else 0
+            scored.append((score, ep))
+        scored.sort(key=lambda x: x[0], reverse=True)
+        return [ep for s, ep in scored[:top_k] if s > 0.05] or memory[-top_k:]
+
+    @classmethod
+    def registrar_episodio(cls, isni: str, user_input: str, system_output: str) -> str:
+        episode_id = f"epi_{secrets.token_hex(8)}"
+        memory = _load_json("episodic")
+        memory.append(
+            {
+                "episode_id": episode_id,
+                "timestamp": time.time(),
+                "datetime": datetime.utcnow().isoformat(),
+                "author_isni": isni,
+                "payload": {"input": user_input, "output": system_output},
+            }
+        )
+        _save_json("episodic", memory)
+        return episode_id
+
+
+class BookPILedgerEngine:
+    DIFFICULTY = 2
+
+    @classmethod
+    def registrar_bloque(cls, module: str, action: str, auditor_isni: str, ethical_evaluation: str) -> str:
+        ledger = _load_json("bookpi")
+        prev_hash = "0" * 64 if not ledger else ledger[-1]["current_hash"]
+        index = len(ledger)
+        ts = time.time()
+        nonce = 0
+        base = f"{index}{prev_hash}{ts}{module}{action}{auditor_isni}{ethical_evaluation}"
+        while True:
+            candidate = hashlib.sha256(f"{base}{nonce}".encode()).hexdigest()
+            if candidate.startswith("0" * cls.DIFFICULTY):
+                break
+            nonce += 1
+        block = {
+            "index": index,
+            "timestamp": ts,
+            "module": module,
+            "action": action,
+            "auditor": auditor_isni,
+            "ethical_evaluation": ethical_evaluation,
+            "previous_hash": prev_hash,
+            "current_hash": candidate,
+            "nonce": nonce,
+        }
+        ledger.append(block)
+        _save_json("bookpi", ledger)
+
+        idx = _load_json("datagit")
+        idx.append(
+            {
+                "commit_hash": candidate[:16],
+                "tree_id": hashlib.sha1(module.encode()).hexdigest()[:20],
+                "timestamp": ts,
+                "author": auditor_isni,
+                "message": f"TAMV_COMMITTED_BLOCK: [{module}] -> Integrity verified.",
+            }
+        )
+        _save_json("datagit", idx)
+        return candidate
+
+
+app = FastAPI(title="TAMV ATLAS CORE BACKEND", version="Genesis-Enterprise")
+app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_credentials=True, allow_methods=["*"], allow_headers=["*"])
+JWT_SECRET = secrets.token_hex(32)
+ROOT_ISNI = "0009-0008-5050-1539"
+
+
+async def anubis_guard(authorization: Optional[str] = Header(None)) -> str:
+    if not authorization or not authorization.startswith("Bearer "):
+        raise HTTPException(status_code=401, detail="ANUBIS auth required")
+    token = authorization.split(" ", 1)[1]
+    try:
+        isni, sig = token.split(".", 1)
+        expected = hmac.new(JWT_SECRET.encode(), isni.encode(), hashlib.sha256).hexdigest()[:16]
+        if not hmac.compare_digest(sig, expected):
+            raise ValueError
+        return isni
+    except Exception as exc:
+        raise HTTPException(status_code=403, detail="Invalid token") from exc
+
+
+@app.get("/health")
+async def health() -> Dict[str, Any]:
+    return {
+        "status": "ok",
+        "service": "tamv-atlas-core",
+        "version": "Genesis-Enterprise",
+        "vault_dir": str(VAULT_DIR),
+    }
+
+
+@app.post("/auth")
+async def auth(payload: AuthPayload):
+    if payload.isni_id != ROOT_ISNI:
+        raise HTTPException(status_code=401, detail="ISNI no reconocida")
+    sig = hmac.new(JWT_SECRET.encode(), payload.isni_id.encode(), hashlib.sha256).hexdigest()[:16]
+    token = f"{payload.isni_id}.{sig}"
+    BookPILedgerEngine.registrar_bloque("AUTH", "SESSION_ISSUED", payload.isni_id, "INTEGRO_VALIDADO")
+    return {"status": "CLEARANCE_GRANTED", "token": token}
+
+
+@app.post("/social")
+async def social(payload: InteractionPayload, isni: str = Depends(anubis_guard)):
+    episodes = TAMVMemoryEngine.buscar_contexto(payload.user_input)
+    output = f"Procesado soberano. Episodios relevantes recuperados: {len(episodes)}"
+    eid = TAMVMemoryEngine.registrar_episodio(isni, payload.user_input, output)
+    BookPILedgerEngine.registrar_bloque("ISABELLA_CORE", f"EXECUTE_EPISODE_{eid}", isni, "PROCESADO_EXITOSO")
+    return {"isabella_response": output, "episode_id": eid, "memory_context_count": len(episodes)}
+
+
+@app.post("/economy")
+async def economy(tx: CreditsTransaction, isni: str = Depends(anubis_guard)):
+    state = _load_json("economy")
+    state["balances"].setdefault(tx.recipient_isni, 0.0)
+    voting_power = tx.amount * (tx.lock_days / 1460.0)
+    lock_id = f"lock_{secrets.token_hex(4)}"
+    state["balances"][tx.recipient_isni] += tx.amount
+    state["locks"][lock_id] = {
+        "owner": tx.recipient_isni,
+        "amount": tx.amount,
+        "voting_power": voting_power,
+        "release_timestamp": time.time() + tx.lock_days * 86400,
+    }
+    _save_json("economy", state)
+    h = BookPILedgerEngine.registrar_bloque("ECONOMY_MDD", f"MINT_VE_LOCK_{lock_id}", isni, "LIQUIDEZ_COMPILADA")
+    return {"status": "CREDITS_LOCKED_SUCCESSFULLY", "lock_id": lock_id, "allocated_voting_power": voting_power, "ledger_block_hash": h}
+
+
+@app.get("/bookpi")
+async def get_bookpi():
+    return _load_json("bookpi")
+
+
+@app.get("/datagit")
+async def get_datagit():
+    return _load_json("datagit")
+
+
+@app.get("/mdd")
+async def get_mdd():
+    return _load_json("economy")
