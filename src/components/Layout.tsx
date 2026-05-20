@@ -8,6 +8,7 @@ const navItems = [
   { path: "/", label: "Inicio" },
   { path: "/ecosistema", label: "Ecosistema" },
   { path: "/isabella-ai", label: "Isabella AI" },
+  { path: "/blueprint", label: "Blueprint" },
   { path: "/ceo", label: "CEO & Fundador" },
   { path: "/tecnologia", label: "Tecnología" },
   { path: "/certificaciones", label: "Certificaciones" },

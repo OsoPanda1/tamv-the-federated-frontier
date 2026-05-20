@@ -10,6 +10,7 @@ import IsabellaAI from "./pages/IsabellaAI";
 import CEO from "./pages/CEO";
 import Tecnologia from "./pages/Tecnologia";
 import Comunidad from "./pages/Comunidad";
+import Blueprint from "./pages/Blueprint";
 import Certificaciones from "./pages/Certificaciones";
 import Publicaciones from "./pages/Publicaciones";
 import NotFound from "./pages/NotFound";
@@ -30,6 +31,7 @@ const App = () => (
             <Route path="/ceo" element={<CEO />} />
             <Route path="/tecnologia" element={<Tecnologia />} />
             <Route path="/comunidad" element={<Comunidad />} />
+            <Route path="/blueprint" element={<Blueprint />} />
             <Route path="/certificaciones" element={<Certificaciones />} />
             <Route path="/publicaciones" element={<Publicaciones />} />
             <Route path="*" element={<NotFound />} />
