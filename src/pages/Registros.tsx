@@ -33,7 +33,7 @@ const registros = [
   {
     label: "Loop / Frontiers",
     value: "Profile 3117809",
-    desc: "Perfil de autor en Loop (Frontiers) para articular producción teórica sobre soberanía digital y gobernanza XR.",
+    desc: "Perfil de autor en Loop (Frontiers) para articular producción teórica sobre interoperabilidad digital responsable y gobernanza XR.",
     url: "http://loop.frontiersin.org/people/3117809/overview?referrer=orcid_profile",
     icon: FileText,
   },
@@ -138,7 +138,7 @@ const Registros = () => {
             <Globe className="text-primary mb-4" size={28} />
             <h3 className="font-display text-lg font-semibold mb-3 text-primary text-glow-blue">EOSC Latinoamericana</h3>
             <p className="font-body text-sm text-muted-foreground leading-relaxed">
-              Propuesta de nube científica regional FAIR, interoperable con EOSC pero soberana sobre datos,
+              Propuesta de nube científica regional FAIR, interoperable con EOSC pero interoperable sobre datos,
               algoritmos e infraestructuras del Sur Global.
             </p>
           </div>

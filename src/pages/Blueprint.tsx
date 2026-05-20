@@ -36,7 +36,7 @@ const estancias = [
   { name: "Local", purpose: "Almacenamiento en dispositivo", crypto: "AES-256", access: "Usuario/Cell" },
   { name: "Federada", purpose: "Modelos y parámetros agregados", crypto: "CKKS, CP-ABE", access: "Nodo autorizado" },
   { name: "Narrativa", purpose: "Historias, explicaciones, linaje", crypto: "AES-256", access: "Cell/Auditor" },
-  { name: "Auditoría", purpose: "Logs, trazabilidad, eventos", crypto: "SHA-512 + AES", access: "Auditor/DAO" },
+  { name: "Auditoría", purpose: "Logs, trazabilidad, eventos", crypto: "SHA-512 + AES", access: "Auditor/Comité técnico" },
   { name: "Índice Referencial", purpose: "Metadatos e índices de búsqueda", crypto: "AES-128", access: "Sistema" },
 ];
 
