@@ -13,6 +13,8 @@ import Comunidad from "./pages/Comunidad";
 import Blueprint from "./pages/Blueprint";
 import Certificaciones from "./pages/Certificaciones";
 import Publicaciones from "./pages/Publicaciones";
+import Registros from "./pages/Registros";
+import UTAMV from "./pages/UTAMV";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -34,6 +36,8 @@ const App = () => (
             <Route path="/blueprint" element={<Blueprint />} />
             <Route path="/certificaciones" element={<Certificaciones />} />
             <Route path="/publicaciones" element={<Publicaciones />} />
+            <Route path="/registros" element={<Registros />} />
+            <Route path="/utamv" element={<UTAMV />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Layout>
