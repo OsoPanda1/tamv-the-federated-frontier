@@ -14,7 +14,7 @@ export default function Publicaciones() {
             </h1>
             <p className="font-body text-xl text-muted-foreground max-w-2xl">
               Documentos, informes y análisis de dominio público con enfoque tecnológico,
-              ético y civilizatorio del proyecto TAMV Online.
+              ético y estructural del proyecto TAMV Online.
             </p>
           </motion.div>
         </div>
@@ -165,7 +165,7 @@ export default function Publicaciones() {
                   {[
                     "Transparencia sobre el uso de IA",
                     "Responsabilidad personal indelegable",
-                    "Soberanía del criterio humano",
+                    "Autonomía del criterio humano",
                     "Educación crítica continua",
                     "Prevención del daño desde el diseño",
                   ].map((p) => (
@@ -232,7 +232,7 @@ export default function Publicaciones() {
             {[
               { title: "Códice Maestro TAMV DM-X4™ — Constitución Digital", url: "https://tamvonlinenetwork.blogspot.com" },
               { title: "TAMV y el Nacimiento del Primer CITEMESH", url: "https://tamvonlinenetwork.blogspot.com/2026/02/tamv-y-el-nacimiento-del-primer.html" },
-              { title: "TAMV Online — Publicación AVIXA Xchange", url: "https://xchange.avixa.org/posts/tamv-online-primer-plataforma-mexicana-civilizacional-digital" },
+              { title: "TAMV Online — Publicación AVIXA Xchange", url: "https://xchange.avixa.org/posts/tamv-online-primer-plataforma-mexicana-sistémica-digital" },
               { title: "Isabella AI — Scientific Appeal", url: "https://tamvonlinenetwork.blogspot.com/2025/10/announcement-scientific-appeal.html" },
               { title: "GitHub — OsoPanda1", url: "https://github.com/OsoPanda1" },
               { title: "ORCID del Fundador", url: "https://orcid.org/0009-0004-3897-2000" },

@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 
 const tracks = [
   {
-    title: "Arquitectura Soberana",
-    desc: "Diseño de kernels federados, MD-X4, Zero-Trust y observabilidad civilizatoria.",
+    title: "Arquitectura Interoperable",
+    desc: "Diseño de kernels federados, MD-X4, Zero-Trust y observabilidad estructural.",
     icon: Zap,
     hours: "320h",
   },
@@ -49,7 +49,7 @@ const UTAMV = () => {
           <p className="font-body text-sm text-muted-foreground max-w-2xl mx-auto">
             UTAMV nace de una constatación incómoda: la mayoría de los caminos para aprender tecnología
             "en serio" son caros, superficiales o condicionados por intereses corporativos. Es la
-            respuesta civilizatoria de TAMV: un campus online soberano para la nueva era digital de LATAM.
+            respuesta estructural de TAMV: un campus online interoperable para la nueva era digital de LATAM.
           </p>
         </motion.div>
 

@@ -6,7 +6,7 @@ const capabilities = [
   { icon: Brain, title: "Inteligencia Emocional", desc: "Procesa y responde con empatía contextual. No solo datos: comprende el estado emocional del usuario." },
   { icon: Leaf, title: "Eficiencia Energética", desc: "Diseñada para minimizar consumo computacional. IA responsable con huella de carbono reducida." },
   { icon: Heart, title: "Ética Nativa", desc: "Gobernanza ética integrada desde el diseño. No es un add-on: la ética es su arquitectura central." },
-  { icon: Shield, title: "Privacidad Soberana", desc: "Los datos del usuario son del usuario. Sin minería de datos oculta ni monetización de información personal." },
+  { icon: Shield, title: "Privacidad Protegida", desc: "Los datos del usuario son del usuario. Sin minería de datos oculta ni monetización de información personal." },
   { icon: Lightbulb, title: "Innovación LATAM", desc: "Nacida en Latinoamérica, diseñada para resolver problemas regionales con visión global." },
   { icon: Cpu, title: "Cognitiva 4D", desc: "Integración con experiencias XR/VR para crear interfaces de IA que trascienden la pantalla tradicional." },
 ];

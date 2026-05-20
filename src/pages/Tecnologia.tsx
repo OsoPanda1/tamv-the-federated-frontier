@@ -14,12 +14,12 @@ const stack = [
 ];
 
 const specs = [
-  { label: "Protocolo de Red", value: "Federado P2P con nodos soberanos" },
+  { label: "Protocolo de Red", value: "Federado P2P con nodos interoperables" },
   { label: "Motor IA", value: "Isabella AI — Agente Constitucional Cognitivo" },
   { label: "Inmersión", value: "WebXR / WebGL / 3D / 4D nativo" },
-  { label: "Economía", value: "PLJ FairSplit 75/25 + Stablecoin + NFT" },
+  { label: "Economía", value: "PLJ FairSplit 75/25 + créditos internos y comprobantes digitales" },
   { label: "Seguridad", value: "Post-cuántica + 13 capas Dekateotl" },
-  { label: "Gobernanza", value: "DAO + Consejo dual auditable" },
+  { label: "Gobernanza", value: "Comité técnico + consejo auditable" },
   { label: "Backend", value: "Monorepo Rust + Go + QuantumPods™" },
   { label: "Escalabilidad", value: "Breakeven: 1,300 usuarios activos" },
   { label: "Frameworks", value: "EU AI Act, GDPR, NIST, ISO 27001, UNESCO" },

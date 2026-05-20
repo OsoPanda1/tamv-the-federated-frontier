@@ -70,7 +70,7 @@ export default function CEO() {
                 Su trabajo ha sido reconocido en plataformas internacionales como <span className="text-secondary">AVIXA Xchange</span>,
                 foros de OpenAI, la comunidad GPT Builders, y ha recibido validación técnica profesional con
                 <span className="text-accent"> GREEN LIGHT</span> de agentes de IA avanzados. Edwin defiende un modelo de tecnología
-                que prioriza la dignidad humana, la gobernanza ética y la soberanía digital.
+                que prioriza la dignidad humana, la gobernanza ética y la interoperabilidad digital responsable.
               </p>
               <p>
                 Autor del <span className="text-primary">Códice Maestro TAMV DM-X4™</span>, una Constitución Digital de Infraestructura

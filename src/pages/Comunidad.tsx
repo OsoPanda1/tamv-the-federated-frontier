@@ -4,14 +4,14 @@ import { ExternalLink, Github, BookOpen, Award, MessageCircle, Users, Globe, Mai
 const socialLinks = [
   { icon: BookOpen, label: "Blog Oficial", url: "https://tamvonlinenetwork.blogspot.com", desc: "Artículos, visión y actualizaciones del ecosistema" },
   { icon: Github, label: "GitHub — OsoPanda1", url: "https://github.com/OsoPanda1", desc: "Repositorios y código del proyecto" },
-  { icon: Award, label: "AVIXA Xchange", url: "https://xchange.avixa.org/posts/tamv-online-primer-plataforma-mexicana-civilizacional-digital", desc: "Publicación oficial en la comunidad AVIXA" },
+  { icon: Award, label: "AVIXA Xchange", url: "https://xchange.avixa.org/posts/tamv-online-primer-plataforma-mexicana-sistémica-digital", desc: "Publicación oficial en la comunidad AVIXA" },
   { icon: Globe, label: "ORCID", url: "https://orcid.org/0009-0004-3897-2000", desc: "Perfil académico e investigación" },
   { icon: MessageCircle, label: "OpenAI Community", url: "https://community.openai.com", desc: "Participación en foros de IA y GPT Builders" },
 ];
 
 const resources = [
   { title: "TAMV y el Nacimiento del Primer CITEMESH", url: "https://tamvonlinenetwork.blogspot.com/2026/02/tamv-y-el-nacimiento-del-primer.html", type: "Blog" },
-  { title: "TAMV Online — AVIXA Xchange", url: "https://xchange.avixa.org/posts/tamv-online-primer-plataforma-mexicana-civilizacional-digital", type: "Publicación" },
+  { title: "TAMV Online — AVIXA Xchange", url: "https://xchange.avixa.org/posts/tamv-online-primer-plataforma-mexicana-sistémica-digital", type: "Publicación" },
   { title: "Isabella AI — Scientific Appeal", url: "https://tamvonlinenetwork.blogspot.com/2025/10/announcement-scientific-appeal.html", type: "Comunicado" },
   { title: "Cómo se construyó TAMV DM-X4™", url: "https://tamvonlinenetwork.blogspot.com/2025/09/como-se-construyo-tamv-dmx4-blog.html", type: "Artículo" },
 ];

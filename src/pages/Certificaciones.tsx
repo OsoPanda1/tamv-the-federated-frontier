@@ -5,12 +5,12 @@ import tamvArchImg from "@/assets/tamv-architecture.png";
 const validationResults = [
   { label: "Valuación post-money inicial", value: "$25,000,000.00 USD" },
   { label: "Test de seguridad", value: "Grado A (Bandit) — vulnerabilidades críticas eliminadas" },
-  { label: "Pionerismo", value: "Primer metaverso mexicano como infraestructura civilizatoria" },
+  { label: "Pionerismo", value: "Primer plataforma XR mexicano como infraestructura estructural" },
   { label: "Autodidactismo", value: "Creación unipersonal de +19,550 horas — récord en LATAM" },
   { label: "ARPU proyectado", value: "$48 USD (vs $12 promedio industria)" },
   { label: "Arquitectura", value: "Heptafederada — 7 Federaciones, niveles L0-L3" },
   { label: "Seguridad", value: "Criptografía post-cuántica Kyber/Dilithium" },
-  { label: "Gobernanza", value: "Dual (DAO + Consejo) — auditable de extremo a extremo" },
+  { label: "Gobernanza", value: "Dual (Comité técnico + Consejo) — auditable de extremo a extremo" },
 ];
 
 export default function Certificaciones() {
@@ -61,7 +61,7 @@ export default function Certificaciones() {
                 </div>
                 <p className="font-body text-sm text-muted-foreground leading-relaxed">
                   El proyecto TAMV DM-X4™ no se clasifica como una aplicación de software, sino como una
-                  <span className="text-primary"> Infraestructura Digital Soberana</span> o "Nación Digital de Pila Completa".
+                  <span className="text-primary"> Infraestructura Digital Interoperable</span> o "plataforma digital de pila completa".
                   Su diseño rompe el paradigma de la Web 2.0 extractiva para proponer una civilización digital sentiente
                   fundamentada en la "Dignidad por Diseño".
                 </p>
@@ -87,7 +87,7 @@ export default function Certificaciones() {
                   <h3 className="font-display text-base font-semibold text-foreground">Memoria y Verdad Radical (MSR & BookPI)</h3>
                 </div>
                 <p className="font-body text-sm text-muted-foreground leading-relaxed">
-                  La Sexta Blockchain Mundial (MSR) actúa como un libro civilizatorio inmutable que permite la
+                  La Registro distribuido verificable (MSR) actúa como un libro estructural inmutable que permite la
                   "Reparación sin Amnesia", donde los actos ilícitos se marcan y compensan sin borrar la historia.
                   Complementado con el BookPI™, el diccionario de estados del sistema.
                 </p>
@@ -138,7 +138,7 @@ export default function Certificaciones() {
               <h3 className="font-display text-xs tracking-wider text-secondary mb-3">TRANSPARENCIA</h3>
               <p className="font-body text-sm text-muted-foreground leading-relaxed">
                 El sistema es auditable de extremo a extremo. La existencia del Muro de los Guardianes y la
-                Gobernanza Dual (DAO + Consejo) permite que cada decisión sea verificable, eliminando la opacidad
+                Gobernanza Dual (Comité técnico + Consejo) permite que cada decisión sea verificable, eliminando la opacidad
                 que caracteriza a empresas como Meta o TikTok.
               </p>
             </div>

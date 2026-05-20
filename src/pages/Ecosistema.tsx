@@ -36,7 +36,7 @@ export default function Ecosistema() {
               El <span className="text-primary text-glow-blue">Ecosistema</span>
             </h1>
             <p className="font-body text-xl text-muted-foreground max-w-2xl mb-4">
-              Infraestructura Digital Soberana — una "Nación Digital de Pila Completa" diseñada para la dignidad humana.
+              Infraestructura Digital Interoperable — una "plataforma digital de pila completa" diseñada para la dignidad humana.
             </p>
             <div className="inline-flex items-center gap-2">
               <MapPin size={14} className="text-destructive" />
