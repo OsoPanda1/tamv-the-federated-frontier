@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Heart, ArrowRight, Sparkles, Globe, Brain, Shield, Award, FileText, Mail, MapPin } from "lucide-react";
 import { lazy, Suspense } from "react";
 import logoTamv from "@/assets/logo-tamv.jpg";
-import plataforma XRImg from "@/assets/plataforma XR-latam.png";
+import metaversoImg from "@/assets/metaverso-latam.png";
 import citemeshImg from "@/assets/citemesh.png";
 
 const Scene3D = lazy(() => import("@/components/Scene3D"));
@@ -59,7 +59,7 @@ const Index = () => {
             <div className="flex items-center gap-4 mb-6">
               <img src={logoTamv} alt="TAMV Online Logo" className="w-16 h-16 rounded-lg object-cover border border-border" />
               <p className="font-display text-xs tracking-[0.4em] text-primary text-glow-blue">
-                ECOSISTEMA CIVILIZATORIO FEDERADO
+                ECOSISTEMA ESTRUCTURAL FEDERADO
               </p>
             </div>
             <h1 className="font-display text-5xl md:text-8xl font-black leading-tight mb-6">
@@ -167,7 +167,7 @@ const Index = () => {
               {
                 icon: Globe,
                 title: "Civilización Digital",
-                desc: "Un ecosistema que trasciende las redes sociales. Gobernanza ética, economía autointeroperable y experiencias inmersivas XR/VR.",
+                desc: "Un ecosistema que trasciende las redes sociales. Gobernanza ética, economía colaborativa y experiencias inmersivas XR/VR.",
                 color: "text-primary",
               },
               {
@@ -209,7 +209,7 @@ const Index = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <img src={plataforma XRImg} alt="Metaverso Latinoamericano TAMV" className="rounded-lg border border-border shadow-2xl" />
+              <img src={metaversoImg} alt="Metaverso Latinoamericano TAMV" className="rounded-lg border border-border shadow-2xl" />
             </motion.div>
             <motion.div
               initial={{ opacity: 0, x: 30 }}
@@ -217,7 +217,7 @@ const Index = () => {
               viewport={{ once: true }}
             >
               <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground mb-4">
-                Construimos el <span className="text-primary text-glow-blue">Metaverso Latinoamericano</span>
+                Construimos una <span className="text-primary text-glow-blue">Plataforma XR Latinoamericana</span>
               </h2>
               <p className="font-body text-muted-foreground leading-relaxed mb-6">
                 Innovador, escalable y rentable. Tecnología XR/IA, educación, cultura,

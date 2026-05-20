@@ -5,7 +5,7 @@ import ecosistemaBg from "@/assets/ecosistema-bg.jpg";
 import citemesh from "@/assets/citemesh.png";
 import arquitectura from "@/assets/tamv-architecture.png";
 import nexoAgua from "@/assets/nexo-agua.png";
-import plataforma XR from "@/assets/plataforma XR-latam.png";
+import metaverso from "@/assets/metaverso-latam.png";
 import isabellaPhoto from "@/assets/isabella-ai.jpg";
 import eoct from "@/assets/visuals/eoct-nodo-cero.svg";
 import gemet from "@/assets/visuals/gemet-protocol.svg";
@@ -32,7 +32,7 @@ const mermaids = [
 ];
 
 export default function VisualCenter() {
-  const base = [heroBg, logoTamv, ecosistemaBg, citemesh, arquitectura, nexoAgua, plataforma XR, isabellaPhoto, eoct, gemet, isabellaKernel, federados7, facultad];
+  const base = [heroBg, logoTamv, ecosistemaBg, citemesh, arquitectura, nexoAgua, metaverso, isabellaPhoto, eoct, gemet, isabellaKernel, federados7, facultad];
   return (
     <div className="py-16">
       <div className="container mx-auto px-4">

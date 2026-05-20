@@ -1,7 +1,7 @@
 # Informe Analítico — TAMV Online (Versión Fundacional Ampliada)
 
 ## Alcance
-Este documento consolida una base técnica y de gobernanza para integrar de forma coherente los componentes estructurals TAMV en capas L0–L7.
+Este documento consolida una base técnica y de gobernanza para integrar de forma coherente los componentes estructurales TAMV en capas L0–L7.
 
 ## Núcleos incluidos
 - Wiki fundacional del ecosistema TAMV.
@@ -30,7 +30,7 @@ Este documento consolida una base técnica y de gobernanza para integrar de form
 - Separación de responsabilidades por capa para facilitar cumplimiento, certificación y peritaje.
 
 ## Entregables documentales requeridos
-- Wiki de componentes estructurals.
+- Wiki de componentes estructurales.
 - Blueprint de APIs y eventos.
 - Matriz de riesgos por capa.
 - Tabla de compatibilidad regulatoria por dominio.
