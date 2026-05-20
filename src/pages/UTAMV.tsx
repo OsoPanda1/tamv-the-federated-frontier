@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 
 const tracks = [
   {
-    title: "Arquitectura Soberana",
-    desc: "Diseño de kernels federados, MD-X4, Zero-Trust y observabilidad civilizatoria.",
+    title: "Arquitectura Interoperable",
+    desc: "Diseño de kernels federados, MD-X4, Zero-Trust y observabilidad estructural.",
     icon: Zap,
     hours: "320h",
   },
@@ -23,7 +23,7 @@ const tracks = [
   },
   {
     title: "Economía Programable",
-    desc: "Identidad soberana, credenciales verificables, economía interna gamificada y ARPU sostenible.",
+    desc: "Identidad interoperable, credenciales verificables, economía interna gamificada y ARPU sostenible.",
     icon: Award,
     hours: "200h",
   },
@@ -49,7 +49,7 @@ const UTAMV = () => {
           <p className="font-body text-sm text-muted-foreground max-w-2xl mx-auto">
             UTAMV nace de una constatación incómoda: la mayoría de los caminos para aprender tecnología
             "en serio" son caros, superficiales o condicionados por intereses corporativos. Es la
-            respuesta civilizatoria de TAMV: un campus online soberano para la nueva era digital de LATAM.
+            respuesta estructural de TAMV: un campus online interoperable para la nueva era digital de LATAM.
           </p>
         </motion.div>
 
@@ -67,7 +67,7 @@ const UTAMV = () => {
           </p>
           <p className="font-body text-muted-foreground leading-relaxed">
             Los egresados no obtienen un papel: obtienen <span className="text-secondary">credenciales
-            verificables soberanas</span> y acceso directo a contribuir en infraestructuras MD-X4 reales,
+            verificables interoperables</span> y acceso directo a contribuir en infraestructuras MD-X4 reales,
             con su nombre registrado en la evolución del kernel.
           </p>
         </motion.div>

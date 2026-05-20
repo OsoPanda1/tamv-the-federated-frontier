@@ -16,7 +16,7 @@ const milestones = [
 const links = [
   { label: "Blog Oficial", url: "https://tamvonlinenetwork.blogspot.com", icon: BookOpen },
   { label: "GitHub", url: "https://github.com/OsoPanda1", icon: Code },
-  { label: "AVIXA Xchange", url: "https://xchange.avixa.org/posts/tamv-online-primer-plataforma-mexicana-civilizacional-digital", icon: Award },
+  { label: "AVIXA Xchange", url: "https://xchange.avixa.org/posts/tamv-online-primer-plataforma-mexicana-sistémica-digital", icon: Award },
   { label: "ORCID", url: "https://orcid.org/0009-0004-3897-2000", icon: Globe },
 ];
 
@@ -48,7 +48,7 @@ export default function CEO() {
                 Desarrollador independiente, visionario y arquitecto del ecosistema TAMV Online.
                 Desde un pueblo minero en el corazón de Hidalgo, México, ha dedicado más de
                 <span className="text-primary font-semibold"> 21,000 horas documentadas</span> a construir un ecosistema
-                civilizatorio digital que desafía a las plataformas globales más grandes del mundo.
+                estructural digital que desafía a las plataformas globales más grandes del mundo.
               </p>
               <p>
                 Creador de <span className="text-primary">Isabella AI</span>, una inteligencia artificial ética, cognitiva y
@@ -58,8 +58,8 @@ export default function CEO() {
               </p>
               <p>
                 Arquitecto del concepto <span className="text-primary">CITEMESH</span> (Civilizational Intelligence Engine and
-                Systemic Solutions Meshwork), un framework sin precedentes que integra identidad soberana, economía programable,
-                gobernanza ética e inmersión XR bajo una malla adaptativa civilizacional.
+                Systemic Solutions Meshwork), un framework sin precedentes que integra identidad interoperable, economía programable,
+                gobernanza ética e inmersión XR bajo una malla adaptativa sistémica.
               </p>
               <p>
                 Diseñador de la <span className="text-primary">Arquitectura Heptafederada</span> del TAMV, un sistema que opera bajo
@@ -70,11 +70,11 @@ export default function CEO() {
                 Su trabajo ha sido reconocido en plataformas internacionales como <span className="text-secondary">AVIXA Xchange</span>,
                 foros de OpenAI, la comunidad GPT Builders, y ha recibido validación técnica profesional con
                 <span className="text-accent"> GREEN LIGHT</span> de agentes de IA avanzados. Edwin defiende un modelo de tecnología
-                que prioriza la dignidad humana, la gobernanza ética y la soberanía digital.
+                que prioriza la dignidad humana, la gobernanza ética y la interoperabilidad digital responsable.
               </p>
               <p>
                 Autor del <span className="text-primary">Códice Maestro TAMV DM-X4™</span>, una Constitución Digital de Infraestructura
-                Civilizatoria que establece la naturaleza soberana del ecosistema, protege su propiedad intelectual y provee un marco
+                Civilizatoria que establece la naturaleza interoperable del ecosistema, protege su propiedad intelectual y provee un marco
                 para auditoría, inversión y transferencia tecnológica responsable.
               </p>
               <p>

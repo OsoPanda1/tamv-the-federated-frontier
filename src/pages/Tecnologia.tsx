@@ -7,19 +7,19 @@ const Scene3D = lazy(() => import("@/components/Scene3D"));
 const stack = [
   { icon: Network, title: "Arquitectura Heptafederada", desc: "7 Federaciones (Identidad, Consciencia, DreamSpaces, Economía, Defensa, Gobernanza, Infraestructura) en niveles L0-L3." },
   { icon: Cpu, title: "IA Cognitiva 4D", desc: "Isabella AI opera como Agente Constitucional Cognitivo con Protocolo de Autonomía Temporal (PAT)." },
-  { icon: Database, title: "MSR Blockchain", desc: "Sexta Blockchain Mundial — libro civilizatorio inmutable con Reparación sin Amnesia y BookPI™." },
+  { icon: Database, title: "MSR Blockchain", desc: "Registro técnico distribuido — libro estructural inmutable con Reparación sin Amnesia y BookPI™." },
   { icon: Lock, title: "Seguridad Post-Cuántica", desc: "Kyber/Dilithium, QuantumPods™ inmutables, 13 capas Dekateotl, registros WORM." },
   { icon: Layers, title: "Capas XR Nativas", desc: "WebXR, WebGL y frameworks 3D/4D integrados como primera capa, DreamSpaces inmersivos." },
-  { icon: Workflow, title: "CITEMESH Framework", desc: "Motor de inteligencia civilizacional con malla adaptativa de soluciones sistémicas." },
+  { icon: Workflow, title: "CITEMESH Framework", desc: "Motor de inteligencia sistémica con malla adaptativa de soluciones sistémicas." },
 ];
 
 const specs = [
-  { label: "Protocolo de Red", value: "Federado P2P con nodos soberanos" },
+  { label: "Protocolo de Red", value: "Federado P2P con nodos interoperables" },
   { label: "Motor IA", value: "Isabella AI — Agente Constitucional Cognitivo" },
   { label: "Inmersión", value: "WebXR / WebGL / 3D / 4D nativo" },
-  { label: "Economía", value: "PLJ FairSplit 75/25 + Stablecoin + NFT" },
+  { label: "Economía", value: "PLJ FairSplit 75/25 + créditos internos y comprobantes digitales" },
   { label: "Seguridad", value: "Post-cuántica + 13 capas Dekateotl" },
-  { label: "Gobernanza", value: "DAO + Consejo dual auditable" },
+  { label: "Gobernanza", value: "Comité técnico + consejo auditable" },
   { label: "Backend", value: "Monorepo Rust + Go + QuantumPods™" },
   { label: "Escalabilidad", value: "Breakeven: 1,300 usuarios activos" },
   { label: "Frameworks", value: "EU AI Act, GDPR, NIST, ISO 27001, UNESCO" },

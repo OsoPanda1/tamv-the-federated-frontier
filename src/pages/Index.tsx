@@ -59,7 +59,7 @@ const Index = () => {
             <div className="flex items-center gap-4 mb-6">
               <img src={logoTamv} alt="TAMV Online Logo" className="w-16 h-16 rounded-lg object-cover border border-border" />
               <p className="font-display text-xs tracking-[0.4em] text-primary text-glow-blue">
-                ECOSISTEMA CIVILIZATORIO FEDERADO
+                ECOSISTEMA ESTRUCTURAL FEDERADO
               </p>
             </div>
             <h1 className="font-display text-5xl md:text-8xl font-black leading-tight mb-6">
@@ -71,7 +71,7 @@ const Index = () => {
               de Latinoamérica.
             </p>
             <p className="font-body text-lg text-accent text-glow-lime mb-1">
-              Antifrágil · Autosoberano · Pionero
+              Antifrágil · Interoperable · Pionero
             </p>
             <p className="font-mono text-sm text-muted-foreground mb-8">
               +22,000 horas documentadas · ORCID 0009-0008-5050-1539 · DOI 10.5281/zenodo.19436662 · TRL 7 · Lanzamiento 5 febrero 2026
@@ -167,7 +167,7 @@ const Index = () => {
               {
                 icon: Globe,
                 title: "Civilización Digital",
-                desc: "Un ecosistema que trasciende las redes sociales. Gobernanza ética, economía autosoberana y experiencias inmersivas XR/VR.",
+                desc: "Un ecosistema que trasciende las redes sociales. Gobernanza ética, economía colaborativa y experiencias inmersivas XR/VR.",
                 color: "text-primary",
               },
               {
@@ -217,7 +217,7 @@ const Index = () => {
               viewport={{ once: true }}
             >
               <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground mb-4">
-                Construimos el <span className="text-primary text-glow-blue">Metaverso Latinoamericano</span>
+                Construimos una <span className="text-primary text-glow-blue">Plataforma XR Latinoamericana</span>
               </h2>
               <p className="font-body text-muted-foreground leading-relaxed mb-6">
                 Innovador, escalable y rentable. Tecnología XR/IA, educación, cultura,
@@ -255,8 +255,8 @@ const Index = () => {
               </p>
               <p className="font-body text-muted-foreground leading-relaxed mb-6">
                 Metaverso Tecnológico Civilizatorio al Servicio de la Humanidad.
-                Identidad soberana, economía programable, gobernanza ética, XR inmersiva
-                y un registro soberano del metaverso con Isabella AI como núcleo cognitivo.
+                Identidad interoperable, economía programable, gobernanza ética, XR inmersiva
+                y un registro interoperable del plataforma XR con Isabella AI como núcleo cognitivo.
               </p>
               <div className="space-y-3">
                 {["Sovereign Identity", "Programmable Economy", "Ethical Governance", "Immersive XR / AI", "Knowledge Hub", "Metaverse Sovereign Registry"].map((item) => (

@@ -5,10 +5,10 @@ import nexoImg from "@/assets/nexo-agua.png";
 import tamvArchImg from "@/assets/tamv-architecture.png";
 
 const features = [
-  { icon: Globe, title: "XR / VR / 3D / 4D", desc: "Experiencias inmersivas nativas que van más allá del metaverso convencional. Realidad extendida como estándar." },
-  { icon: Layers, title: "CITEMESH", desc: "Civilizational Intelligence Engine and Systemic Solutions Meshwork — el primer framework civilizacional de su tipo." },
-  { icon: Coins, title: "Economía Autosoberana", desc: "Stablecoin híbrida, banco digital, subastas NFT y micropréstamos. FairSplit 75/25 para creadores." },
-  { icon: Users, title: "Gobernanza Ética", desc: "Modelo federado con gobernanza transparente. DAO + Consejo dual auditable de extremo a extremo." },
+  { icon: Globe, title: "XR / VR / 3D / 4D", desc: "Experiencias inmersivas nativas que van más allá del plataforma XR convencional. Realidad extendida como estándar." },
+  { icon: Layers, title: "CITEMESH", desc: "Civilizational Intelligence Engine and Systemic Solutions Meshwork — el primer framework sistémica de su tipo." },
+  { icon: Coins, title: "Economía Colaborativa", desc: "Créditos internos, cuentas de contribución y herramientas de apoyo comunitario. FairSplit 75/25 para creadores." },
+  { icon: Users, title: "Gobernanza Ética", desc: "Modelo federado con gobernanza transparente. Comités auditables con reglas públicas y trazabilidad operativa." },
   { icon: ShieldCheck, title: "Seguridad Post-Cuántica", desc: "Criptografía Kyber/Dilithium, QuantumPods™ inmutables, 13 capas de seguridad Dekateotl." },
   { icon: Zap, title: "Arquitectura Antifrágil", desc: "Heptafederada: 7 Federaciones, niveles L0-L3. Breakeven con 1,300-2,300 usuarios activos." },
 ];
@@ -36,7 +36,7 @@ export default function Ecosistema() {
               El <span className="text-primary text-glow-blue">Ecosistema</span>
             </h1>
             <p className="font-body text-xl text-muted-foreground max-w-2xl mb-4">
-              Infraestructura Digital Soberana — una "Nación Digital de Pila Completa" diseñada para la dignidad humana.
+              Infraestructura Digital Interoperable — una "plataforma digital de pila completa" diseñada para la dignidad humana.
             </p>
             <div className="inline-flex items-center gap-2">
               <MapPin size={14} className="text-destructive" />
