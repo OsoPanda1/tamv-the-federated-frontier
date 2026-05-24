@@ -75,6 +75,7 @@ class TAMVMemoryEngine:
     @classmethod
     def registrar_episodio(cls, isni: str, user_input: str, system_output: str) -> str:
         episode_id = f"epi_{secrets.token_hex(8)}"
+        memory = _load_json("episodic")
         memory = json.loads(PATHS["episodic"].read_text(encoding="utf-8"))
         memory.append(
             {
@@ -85,6 +86,7 @@ class TAMVMemoryEngine:
                 "payload": {"input": user_input, "output": system_output},
             }
         )
+        _save_json("episodic", memory)
         PATHS["episodic"].write_text(json.dumps(memory, indent=2, ensure_ascii=False), encoding="utf-8")
         return episode_id
 
@@ -94,6 +96,7 @@ class BookPILedgerEngine:
 
     @classmethod
     def registrar_bloque(cls, module: str, action: str, auditor_isni: str, ethical_evaluation: str) -> str:
+        ledger = _load_json("bookpi")
         ledger = json.loads(PATHS["bookpi"].read_text(encoding="utf-8"))
         prev_hash = "0" * 64 if not ledger else ledger[-1]["current_hash"]
         index = len(ledger)
@@ -153,6 +156,16 @@ async def anubis_guard(authorization: Optional[str] = Header(None)) -> str:
         raise HTTPException(status_code=403, detail="Invalid token") from exc
 
 
+@app.get("/health")
+async def health() -> Dict[str, Any]:
+    return {
+        "status": "ok",
+        "service": "tamv-atlas-core",
+        "version": "Genesis-Enterprise",
+        "vault_dir": str(VAULT_DIR),
+    }
+
+
 @app.post("/auth")
 async def auth(payload: AuthPayload):
     if payload.isni_id != ROOT_ISNI:
@@ -174,6 +187,7 @@ async def social(payload: InteractionPayload, isni: str = Depends(anubis_guard))
 
 @app.post("/economy")
 async def economy(tx: CreditsTransaction, isni: str = Depends(anubis_guard)):
+    state = _load_json("economy")
     state = json.loads(PATHS["economy"].read_text(encoding="utf-8"))
     state["balances"].setdefault(tx.recipient_isni, 0.0)
     voting_power = tx.amount * (tx.lock_days / 1460.0)
@@ -192,4 +206,15 @@ async def economy(tx: CreditsTransaction, isni: str = Depends(anubis_guard)):
 
 @app.get("/bookpi")
 async def get_bookpi():
+    return _load_json("bookpi")
+
+
+@app.get("/datagit")
+async def get_datagit():
+    return _load_json("datagit")
+
+
+@app.get("/mdd")
+async def get_mdd():
+    return _load_json("economy")
     return json.loads(PATHS["bookpi"].read_text(encoding="utf-8"))
