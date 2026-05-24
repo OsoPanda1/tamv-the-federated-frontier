@@ -1,14 +1,14 @@
 import hashlib
 import hmac
 import json
+import os
 import secrets
 import time
 from datetime import datetime
 from pathlib import Path
-from threading import Lock
 from typing import Any, Dict, List, Optional, Set
 
-from fastapi import Depends, FastAPI, Header, HTTPException
+from fastapi import Depends, FastAPI, Header, HTTPException, status
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
 
@@ -23,31 +23,13 @@ PATHS = {
     "economy": VAULT_DIR / "mdd_economy_state.json",
 }
 
-FILE_LOCKS = {key: Lock() for key in PATHS}
-
-
-def _atomic_write(path: Path, data: Any) -> None:
-    tmp = path.with_suffix(path.suffix + ".tmp")
-    tmp.write_text(json.dumps(data, indent=2, ensure_ascii=False), encoding="utf-8")
-    tmp.replace(path)
-
-
-def _load_json(path_key: str) -> Any:
-    with FILE_LOCKS[path_key]:
-        return json.loads(PATHS[path_key].read_text(encoding="utf-8"))
-
-
-def _save_json(path_key: str, data: Any) -> None:
-    with FILE_LOCKS[path_key]:
-        _atomic_write(PATHS[path_key], data)
-
-
 for name, path in PATHS.items():
     if not path.exists():
-        if name == "economy":
-            _save_json(name, {"balances": {}, "locks": {}})
-        else:
-            _save_json(name, [])
+        with open(path, "w", encoding="utf-8") as f:
+            if name == "economy":
+                json.dump({"balances": {}, "locks": {}}, f, indent=2)
+            else:
+                json.dump([], f, indent=2)
 
 
 class AuthPayload(BaseModel):
@@ -56,7 +38,7 @@ class AuthPayload(BaseModel):
 
 
 class InteractionPayload(BaseModel):
-    user_input: str = Field(..., min_length=1, max_length=6000)
+    user_input: str
 
 
 class CreditsTransaction(BaseModel):
@@ -75,7 +57,7 @@ class TAMVMemoryEngine:
 
     @classmethod
     def buscar_contexto(cls, query: str, top_k: int = 3) -> List[Dict[str, Any]]:
-        memory = _load_json("episodic")
+        memory = json.loads(PATHS["episodic"].read_text(encoding="utf-8"))
         if not memory:
             return []
         q = cls._tokens(query)
@@ -94,6 +76,7 @@ class TAMVMemoryEngine:
     def registrar_episodio(cls, isni: str, user_input: str, system_output: str) -> str:
         episode_id = f"epi_{secrets.token_hex(8)}"
         memory = _load_json("episodic")
+        memory = json.loads(PATHS["episodic"].read_text(encoding="utf-8"))
         memory.append(
             {
                 "episode_id": episode_id,
@@ -104,6 +87,7 @@ class TAMVMemoryEngine:
             }
         )
         _save_json("episodic", memory)
+        PATHS["episodic"].write_text(json.dumps(memory, indent=2, ensure_ascii=False), encoding="utf-8")
         return episode_id
 
 
@@ -113,6 +97,7 @@ class BookPILedgerEngine:
     @classmethod
     def registrar_bloque(cls, module: str, action: str, auditor_isni: str, ethical_evaluation: str) -> str:
         ledger = _load_json("bookpi")
+        ledger = json.loads(PATHS["bookpi"].read_text(encoding="utf-8"))
         prev_hash = "0" * 64 if not ledger else ledger[-1]["current_hash"]
         index = len(ledger)
         ts = time.time()
@@ -135,9 +120,9 @@ class BookPILedgerEngine:
             "nonce": nonce,
         }
         ledger.append(block)
-        _save_json("bookpi", ledger)
+        PATHS["bookpi"].write_text(json.dumps(ledger, indent=2, ensure_ascii=False), encoding="utf-8")
 
-        idx = _load_json("datagit")
+        idx = json.loads(PATHS["datagit"].read_text(encoding="utf-8"))
         idx.append(
             {
                 "commit_hash": candidate[:16],
@@ -147,7 +132,7 @@ class BookPILedgerEngine:
                 "message": f"TAMV_COMMITTED_BLOCK: [{module}] -> Integrity verified.",
             }
         )
-        _save_json("datagit", idx)
+        PATHS["datagit"].write_text(json.dumps(idx, indent=2, ensure_ascii=False), encoding="utf-8")
         return candidate
 
 
@@ -203,6 +188,7 @@ async def social(payload: InteractionPayload, isni: str = Depends(anubis_guard))
 @app.post("/economy")
 async def economy(tx: CreditsTransaction, isni: str = Depends(anubis_guard)):
     state = _load_json("economy")
+    state = json.loads(PATHS["economy"].read_text(encoding="utf-8"))
     state["balances"].setdefault(tx.recipient_isni, 0.0)
     voting_power = tx.amount * (tx.lock_days / 1460.0)
     lock_id = f"lock_{secrets.token_hex(4)}"
@@ -213,7 +199,7 @@ async def economy(tx: CreditsTransaction, isni: str = Depends(anubis_guard)):
         "voting_power": voting_power,
         "release_timestamp": time.time() + tx.lock_days * 86400,
     }
-    _save_json("economy", state)
+    PATHS["economy"].write_text(json.dumps(state, indent=2), encoding="utf-8")
     h = BookPILedgerEngine.registrar_bloque("ECONOMY_MDD", f"MINT_VE_LOCK_{lock_id}", isni, "LIQUIDEZ_COMPILADA")
     return {"status": "CREDITS_LOCKED_SUCCESSFULLY", "lock_id": lock_id, "allocated_voting_power": voting_power, "ledger_block_hash": h}
 
@@ -231,3 +217,4 @@ async def get_datagit():
 @app.get("/mdd")
 async def get_mdd():
     return _load_json("economy")
+    return json.loads(PATHS["bookpi"].read_text(encoding="utf-8"))
